@@ -1,6 +1,7 @@
 #include "ShoppingCart.h"
 #include "functions.h"
 #include <iostream>
+#include <cstddef>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ void ShoppingCart::addToCart(vector<Product>& products)
     cout << "Enter quantity: ";
     quantity = getPositiveInt();
 
-    for (int i = 0; i < products.size(); i++)
+    for (std::size_t i = 0; i < products.size(); i++)
     {
         if (products[i].getID() == id)
         {
@@ -25,7 +26,7 @@ void ShoppingCart::addToCart(vector<Product>& products)
                 return;
             }
 
-            for (int j = 0; j < items.size(); j++)
+            for (std::size_t j = 0; j < items.size(); j++)
             {
                 if (items[j].getProductID() == id)
                 {
@@ -65,12 +66,12 @@ void ShoppingCart::displayCart(vector<Product>& products)
 
     cout << "\n===== SHOPPING CART =====" << endl;
 
-    for (int i = 0; i < items.size(); i++)
+    for (std::size_t i = 0; i < items.size(); i++)
     {
         int productID = items[i].getProductID();
         int quantity = items[i].getQuantity();
 
-        for (int j = 0; j < products.size(); j++)
+        for (std::size_t j = 0; j < products.size(); j++)
         {
             if (products[j].getID() == productID)
             {
@@ -96,7 +97,7 @@ void ShoppingCart::removeFromCart()
     cout << "Enter quantity to remove: ";
     quantity = getPositiveInt();
 
-    for (int i = 0; i < items.size(); i++)
+    for (std::size_t i = 0; i < items.size(); i++)
     {
         if (items[i].getProductID() == id)
         {
@@ -128,12 +129,12 @@ int ShoppingCart::calculateTotal(vector<Product>& products)
 {
     int total = 0;
 
-    for (int i = 0; i < items.size(); i++)
+    for (std::size_t i = 0; i < items.size(); i++)
     {
         int productID = items[i].getProductID();
         int quantity = items[i].getQuantity();
 
-        for (int j = 0; j < products.size(); j++)
+        for (std::size_t j = 0; j < products.size(); j++)
         {
             if (products[j].getID() == productID)
             {
@@ -169,12 +170,12 @@ void ShoppingCart::checkout(vector<Product>& products)
 
     if (confirm == 'y' || confirm == 'Y')
     {
-        for (int i = 0; i < items.size(); i++)
+        for (std::size_t i = 0; i < items.size(); i++)
         {
             int productID = items[i].getProductID();
             int quantity = items[i].getQuantity();
 
-            for (int j = 0; j < products.size(); j++)
+            for (std::size_t j = 0; j < products.size(); j++)
             {
                 if (products[j].getID() == productID)
                 {
@@ -190,12 +191,12 @@ void ShoppingCart::checkout(vector<Product>& products)
             }
         }
 
-        for (int i = 0; i < items.size(); i++)
+        for (std::size_t i = 0; i < items.size(); i++)
         {
             int productID = items[i].getProductID();
             int quantity = items[i].getQuantity();
 
-            for (int j = 0; j < products.size(); j++)
+            for (std::size_t j = 0; j < products.size(); j++)
             {
                 if (products[j].getID() == productID)
                 {
